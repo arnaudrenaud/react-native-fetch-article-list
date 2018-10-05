@@ -12,6 +12,6 @@ const styles = StyleSheet.create({
 
 export default () => (
   <View style={styles.container}>
-    <Text>Articles</Text>
+    <Text>Aucun article</Text>
   </View>
 );
