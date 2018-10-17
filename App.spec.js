@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 import App from './App';
+import ArticleList from './components/ArticleList';
 
 describe('App', () => {
   it('renders View', () => {
@@ -12,15 +13,10 @@ describe('App', () => {
   });
 
   describe('within View', () => {
-    it('renders Text with text "Aucun article"', () => {
+    it('renders ArticleList', () => {
       const AppWrapper = shallow(<App />);
 
-      expect(
-        AppWrapper.find(View)
-          .find(Text)
-          .dive()
-          .text()
-      ).toEqual('Aucun article');
+      expect(AppWrapper.find(ArticleList)).toHaveLength(1);
     });
   });
 });
