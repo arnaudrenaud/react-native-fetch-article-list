@@ -1,4 +1,18 @@
 import React from 'react';
-import { Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { FlatList, Text } from 'react-native';
 
-export default () => <Text>Aucun article</Text>;
+import ArticleThumbnail from './ArticleThumbnail';
+
+const ArticleList = ({ articles }) =>
+  articles.length ? (
+    <FlatList data={articles} renderItem={ArticleThumbnail} />
+  ) : (
+    <Text>Aucun article</Text>
+  );
+
+ArticleList.propTypes = {
+  articles: PropTypes.array.isRequired,
+};
+
+export default ArticleList;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import articles from './exampleData';
 import ArticleList from './components/ArticleList';
 
 const styles = StyleSheet.create({
@@ -14,6 +15,6 @@ const styles = StyleSheet.create({
 
 export default () => (
   <View style={styles.container}>
-    <ArticleList />
+    <ArticleList articles={articles} />
   </View>
 );
