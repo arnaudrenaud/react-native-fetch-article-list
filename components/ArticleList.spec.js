@@ -4,7 +4,7 @@ import { FlatList, Text } from 'react-native';
 
 import articles from '../exampleData';
 import ArticleThumbnail from './ArticleThumbnail';
-import ArticleList from './ArticleList';
+import ArticleList, { articleUrlExtractor } from './ArticleList';
 
 describe('ArticleList', () => {
   describe('when passed no articles', () => {
@@ -28,6 +28,7 @@ describe('ArticleList', () => {
       const FlatListWrapper = ArticleListWrapper.find(FlatList);
       expect(FlatListWrapper.prop('data')).toEqual(articles);
       expect(FlatListWrapper.prop('renderItem')).toEqual(ArticleThumbnail);
+      expect(FlatListWrapper.prop('keyExtractor')).toEqual(articleUrlExtractor);
     });
   });
 });
