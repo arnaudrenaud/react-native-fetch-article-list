@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, Text } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 import ArticleThumbnail from './ArticleThumbnail';
 
 const articleUrlExtractor = article => article.url;
+
+const styles = StyleSheet.create({
+  noArticlesContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 const ArticleList = ({ articles }) =>
   articles.length ? (
@@ -14,7 +22,9 @@ const ArticleList = ({ articles }) =>
       keyExtractor={articleUrlExtractor}
     />
   ) : (
-    <Text>Aucun article</Text>
+    <View style={styles.noArticlesContainer}>
+      <Text>Aucun article</Text>
+    </View>
   );
 
 ArticleList.propTypes = {

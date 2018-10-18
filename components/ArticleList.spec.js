@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FlatList, Text } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 
 import articles from '../exampleData';
 import ArticleThumbnail from './ArticleThumbnail';
@@ -10,11 +10,12 @@ describe('ArticleList', () => {
   describe('when passed no articles', () => {
     const noArticles = [];
 
-    it('renders Text with text "Aucun article"', () => {
+    it('renders View and Text with text "Aucun article"', () => {
       const ArticleListWrapper = shallow(<ArticleList articles={noArticles} />);
 
       expect(
-        ArticleListWrapper.find(Text)
+        ArticleListWrapper.find(View)
+          .find(Text)
           .dive()
           .text()
       ).toEqual('Aucun article');
